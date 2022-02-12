@@ -22,7 +22,7 @@ if ($result["is_blocked"] == 0){
     $is_blocked = 1;
     $array_response["status"] = "user blocked";
 }else{
-    $is_blocked =0;
+    $is_blocked = 0;
     $array_response["status"] = "user unblocked";
 }
 
