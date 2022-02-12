@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include("db_info.php");
 
@@ -16,6 +17,10 @@ if(isset($_POST["password"])){
     die("Don't try to mess around bro ;)");
 }
 
+// $email = "today@gmail.com";
+// $password = hash("sha256", "helloworld");
+
+
 $query = $mysqli->prepare("SELECT id FROM users WHERE email = ? AND password = ?");
 $query->bind_param("ss", $email, $password);
 $query->execute();
@@ -31,8 +36,8 @@ if($num_rows == 0){
     $array_response["status"] = "User not found!";
 }else{
     $array_response["status"] = "Logged In !";
+    $_SESSION ["id"] = $id;
     $array_response["user_id"] = $id;
-
 }
 
 $json_response = json_encode($array_response);
