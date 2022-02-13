@@ -15,6 +15,7 @@ while($result_array = $result->fetch_assoc()){
     $friends[] = $result_array;
 }
 
+
 $json = json_encode($friends, JSON_PRETTY_PRINT);
 echo($json);
 
