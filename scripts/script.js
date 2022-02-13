@@ -22,10 +22,14 @@ async function fetchLogin(email,password){
         const response = await fetch('http://localhost/Facebook/php/login.php', settings);
         console.log(response);
         const json = await response.json();
+        console.log(json);
         if (json.status != "User not found!"){
-          location.href = 'http://localhost/Facebook/views/home.html';
+          localStorage.setItem("user_id", json.user_id);
+          location.href = "http://localhost/Facebook/views/home.html"; 
         }
       }catch(error){
-        console.log("error", error)
+        console.log("error", error);
     }
 };
+
+const id = document.getElementById("ID");

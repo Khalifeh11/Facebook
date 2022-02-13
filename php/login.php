@@ -7,14 +7,14 @@ if(isset($_POST["email"])){
     $email = $mysqli->real_escape_string($_POST["email"]);
     
 }else{
-    die("Don't try to mess around bro ;)");
+    die("enter email");
 }
 
 if(isset($_POST["password"])){
     $password = $mysqli->real_escape_string($_POST["password"]);
     $password = hash("sha256", $password);
 }else{
-    die("Don't try to mess around bro ;)");
+    die("enter password");
 }
 
 $query = $mysqli->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
