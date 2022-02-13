@@ -30,6 +30,7 @@ a{
 
 .avatar-section{
     background-color: aliceblue;
+    height: fit-content;
 }
 
 .home-content{
