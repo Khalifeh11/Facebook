@@ -4,29 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Facebook</title>
     <title>Facebook</title>
 </head>
 <body>
-    <br>
-    <form id="login-form">
-        <label for="fname">Email:</label>
-        <input type="text" id="login-email" name="fname"><br><br>
-        <label for="lname">Password:</label>
-        <input type="password" id="login-password" name="lname"><br><br>
-        <input type="submit" value="sign in" id="signin-btn">
-    </form>
-    <br><br><br><br><br>
-    <form>
-        <label for="fname">first name:</label>
-        <input type="text" id="register-first-name" name="fname"><br><br>
-        <label for="lname">Last name:</label>
-        <input type="text" id="register-last-name" name="lname"><br><br>
-        <label for="fname">Email:</label>
-        <input type="text" id="register-email" name="fname"><br><br>
-        <label for="lname">Password:</label>
-        <input type="password" id="register-password" name="lname"><br><br>
-        <input type="submit" value="sign up" id="signup-btn">
-    </form>
+    <div id="form-container">
+        <div id="login-container">  
+            <form id="login-form" class="login form">
+                <input type="text" id="login-email" name="email" placeholder="Email adress"><br><br>
+                <input type="password" id="login-password" name="password" placeholder="Password"><br><br>
+                <input type="submit" value="sign in" id="signin-btn" class="form">
+            </form>
+        </div>
+        <div id="signup-container">
+            <form class="signup form">
+                <label for="fname">first name:</label>
+                <input type="text" id="register-first-name" name="fname"><br><br>
+                <label for="lname">Last name:</label>
+                <input type="text" id="register-last-name" name="lname"><br><br>
+                <label for="fname">Email:</label>
+                <input type="text" id="register-email" name="fname"><br><br>
+                <label for="lname">Password:</label>
+                <input type="password" id="register-password" name="lname"><br><br>
+                <input type="submit" value="sign up" id="signup-btn">
+            </form>
+        </div>
+    </div>
 <script src="./scripts/script.js"></script>
 </body>
 </html>

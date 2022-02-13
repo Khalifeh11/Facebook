@@ -1,4 +1,4 @@
-
+console.log("hello");
 const signinBtn = document.getElementById("signin-btn");
 
 
@@ -7,7 +7,7 @@ signinBtn.addEventListener("click", function(e){
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("login-password").value;
     fetchLogin(email, password);
-})
+});
 
 
 async function fetchLogin(email,password){
@@ -25,11 +25,10 @@ async function fetchLogin(email,password){
         console.log(json);
         if (json.status != "User not found!"){
           localStorage.setItem("user_id", json.user_id);
-          location.href = "http://localhost/Facebook/views/home.html"; 
+          location.href = "http://localhost/Facebook/views/home.html";
         }
       }catch(error){
         console.log("error", error);
     }
 };
 
-const id = document.getElementById("ID");
