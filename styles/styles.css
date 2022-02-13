@@ -1,10 +1,14 @@
 .navbar-items{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: blue;
 }
 
 a{
     margin: 1rem;
+}
+#search-input{
 }
 
 .navbar-left{
@@ -15,5 +19,25 @@ a{
     justify-content: flex-end;
 }
 
+#posts{
+    display: flex;
+    flex-direction: column;
+}
+.post{
+    margin: 1rem 10rem;
+    background-color: aliceblue;
+}
+
+.avatar-section{
+    background-color: aliceblue;
+}
+
+.home-content{
+    display: flex;
+}
 
 
+
+#posts{
+    justify-content: center;
+}
