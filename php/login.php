@@ -17,25 +17,24 @@ if(isset($_POST["password"])){
     die("Don't try to mess around bro ;)");
 }
 
-$query = $mysqli->prepare("SELECT id FROM users WHERE email = ? AND password = ?");
+$query = $mysqli->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
 $query->bind_param("ss", $email, $password);
 $query->execute();
 
-
-$query->store_result();
-$num_rows = $query->num_rows;
-$bind = $query->bind_result($id);
-$assoc = $query->fetch();
-
-$id_encode = base64_encode($id);
+$result = $query->get_result();
+$row = $result->fetch_assoc();
 
 $array_response = [];
 
-if($num_rows == 0){
+if(!$row){
     $array_response["status"] = "User not found!";
 }else{
+    $id = $row["id"];
+    $id_encode = base64_encode($id);
     $array_response["status"] = "Logged In !";
-    $array_response["user_id"] = $id;
+    $array_response["user_id"] = $id_encode;
+    $array_response["first_name"] = $row["first_name"];
+    $array_response["last_name"] = $row["last_name"];
 }
 
 $json_response = json_encode($array_response);

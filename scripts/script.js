@@ -6,7 +6,6 @@ signinBtn.addEventListener("click", function(e){
     e.preventDefault();
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("login-password").value;
-    console.log(email,password);
     fetchLogin(email, password);
 })
 
