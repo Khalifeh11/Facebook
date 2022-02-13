@@ -1,0 +1,19 @@
+.navbar-items{
+    display: flex;
+    justify-content: space-between;
+}
+
+a{
+    margin: 1rem;
+}
+
+.navbar-left{
+    justify-content: flex-start;
+}
+
+.navbar-right{
+    justify-content: flex-end;
+}
+
+
+
