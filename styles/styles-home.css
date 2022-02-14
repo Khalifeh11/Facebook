@@ -1,0 +1,85 @@
+/*--------------------------------Home page--------------------------------*/
+
+
+/*--------------------------------Navigation bar--------------------------------*/
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar-container{
+    display: flex;
+    list-style: none;
+    background-color: #4967a9;
+    width: 100vw;
+}
+
+li{
+    flex: auto;
+}
+
+.logout{
+    justify-self: flex-end;
+}
+
+
+
+#navbar-logo{
+    background-color: white;
+    height: 120;
+    width: 60;
+}
+
+.nav-icon {
+    height: 10;
+    width: 60;
+}
+
+#search-icon {
+}
+
+.navbar{
+    position: sticky;
+    width: 100vw;
+    min-width: 100vw;
+}
+
+
+/* @media all and (max-width: 600px) {  
+    
+    .navbar-container {  
+      flex-wrap: wrap;  
+    }  
+      
+    .navbar-container > li {  
+      flex-basis: 50%;  
+    }
+  
+  } */
+
+
+
+/*--------------------------------End of Navbar--------------------------------*/
+
+
+#posts{
+    display: flex;
+    flex-direction: column;
+}
+.post{
+    margin: 1rem 10rem;
+    background-color: aliceblue;
+}
+
+.avatar-section{
+    background-color: aliceblue;
+    height: fit-content;
+}
+
+.home-content{
+    display: flex;
+}
+
+
+#posts{
+    justify-content: center;
+}
