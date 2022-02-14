@@ -1,7 +1,10 @@
 /*--------------------------------Login page--------------------------------*/
-
 .title{
     text-align: center;
+}
+
+.fb{
+    max-height: 4rem;
 }
 
 #form-container{
@@ -17,7 +20,7 @@
 }
 
 #login-container {
-    padding: 4rem;
+    padding: 3rem;
     border-radius: 12px;
     box-shadow: 5px 10px 5px 5px #888888;
     margin: 2rem;
@@ -26,7 +29,7 @@
 }
 
 #signup-container {
-    padding: 4rem;
+    padding: 3rem;
     border-radius: 12px;
     box-shadow: 5px 10px 5px 5px #888888;
     margin: 2rem;
