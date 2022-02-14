@@ -1,4 +1,3 @@
-console.log("hello");
 const signinBtn = document.getElementById("signin-btn");
 
 
@@ -24,8 +23,12 @@ async function fetchLogin(email,password){
         const json = await response.json();
         console.log(json);
         if (json.status != "User not found!"){
+          localStorage.clear();
           localStorage.setItem("user_id", json.user_id);
-          location.href = "http://localhost/Facebook/views/home.html";
+          localStorage.setItem("first_name", json.first_name);
+          localStorage.setItem("last_name", json.last_name);
+
+          location.href = "../views/home.html";
         }
       }catch(error){
         console.log("error", error);
