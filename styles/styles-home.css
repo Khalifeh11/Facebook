@@ -5,6 +5,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Open Sans', sans-serif;
 }
 .navbar-container{
     display: flex;
@@ -34,7 +35,13 @@ li{
     width: 60;
 }
 
-#search-icon {
+#search-input {
+    padding-top: 1rem;
+}
+
+#logout {
+    padding-top: 1rem;
+    font-size: larger;
 }
 
 .navbar{
@@ -72,8 +79,16 @@ li{
 
 .avatar-section{
     background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: fit-content;
+    border-radius: 12px;
+    margin: 2rem;
 }
+
+
 
 .home-content{
     display: flex;
