@@ -3,8 +3,7 @@
 include("db_info.php");
 
 if(isset($_POST["email"])){
-    $email = $mysqli->real_escape_string($_POST["email"]);
-    
+    $email = $mysqli->real_escape_string($_POST["email"]); 
 }else{
     die("Don't try to mess around bro ;)");
 }
