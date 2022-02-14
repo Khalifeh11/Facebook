@@ -18,8 +18,17 @@ li{
     flex: 1;
 }
 
-.logout{
+#logout{
     justify-self: flex-end;
+    font-weight: bold;
+    border: 2px solid black;
+    text-align: center;
+
+}
+
+#logout:hover{
+    cursor: pointer;
+    background-color: #426cc5;
 }
 
 
