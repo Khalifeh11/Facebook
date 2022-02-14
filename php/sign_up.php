@@ -5,26 +5,26 @@ include("db_info.php");
 if(isset($_POST["email"]) AND strlen($_POST["email"] > 0)){
     $email = $mysqli->real_escape_string($_POST["email"]); 
 }else{
-    die("Don't try to mess around bro ;)");
+    die("Invalid email");
 }
 
 if(isset($_POST["password"]) AND strlen($_POST["password"] > 0)){
     $password = $mysqli->real_escape_string($_POST["password"]);
     $password = hash("sha256", $password);
 }else{
-    die("Don't try to mess around bro ;)");
+    die("Invalid password");
 }
 
 if(isset($_POST["first_name"]) AND strlen($_POST["first_name"] > 0)){
     $first_name = $mysqli->real_escape_string($_POST["first_name"]);
 }else{
-    die("Don't try to mess around bro ;)");
+    die("Invalid first name");
 }
 
 if(isset($_POST["last_name"]) AND strlen($_POST["last_name"] > 0)){
     $last_name = $mysqli->real_escape_string($_POST["last_name"]);
 }else{
-    die("Don't try to mess around bro ;)");
+    die("Invalid last name");
 }
 
 // check if user exists in our database 
