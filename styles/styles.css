@@ -1,9 +1,13 @@
+
+.title{
+    text-align: center;
+}
+
 #form-container{
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 .form{
@@ -14,7 +18,7 @@
 #login-container {
     padding: 4rem;
     border-radius: 12px;
-    box-shadow: 5px 10px #888888;
+    box-shadow: 5px 10px 5px 5px #888888;
     margin: 2rem;
     background-color: #f0f2f5;
     flex: 0 1 15%;
@@ -23,7 +27,7 @@
 #signup-container {
     padding: 4rem;
     border-radius: 12px;
-    box-shadow: 5px 10px #888888;
+    box-shadow: 5px 10px 5px 5px #888888;
     margin: 2rem;
     background-color: #f0f2f5;
     flex: 0 1 15%;
@@ -44,19 +48,20 @@ input[type=text]:focus, input[type=password]:focus{
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
     font-size:medium;
-    background-color: #1877f2;
+    background-color: #4967a9;
     cursor: pointer;
 }
 
+.form-btn:hover{
+    background-color: #344a7a;
+}
 
-
-
-
-
-
-
-
-
+@media only screen and (max-width: 500px) {
+ 
+   .content{
+       width: fit-content;
+   }
+}
 
 
 .navbar-items{
