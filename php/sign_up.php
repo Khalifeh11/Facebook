@@ -2,26 +2,26 @@
 
 include("db_info.php");
 
-if(isset($_POST["email"])){
+if(isset($_POST["email"]) AND strlen($_POST["email"] > 0)){
     $email = $mysqli->real_escape_string($_POST["email"]); 
 }else{
     die("Don't try to mess around bro ;)");
 }
 
-if(isset($_POST["password"])){
+if(isset($_POST["password"]) AND strlen($_POST["password"] > 0)){
     $password = $mysqli->real_escape_string($_POST["password"]);
     $password = hash("sha256", $password);
 }else{
     die("Don't try to mess around bro ;)");
 }
 
-if(isset($_POST["first_name"])){
+if(isset($_POST["first_name"]) AND strlen($_POST["first_name"] > 0)){
     $first_name = $mysqli->real_escape_string($_POST["first_name"]);
 }else{
     die("Don't try to mess around bro ;)");
 }
 
-if(isset($_POST["last_name"])){
+if(isset($_POST["last_name"]) AND strlen($_POST["last_name"] > 0)){
     $last_name = $mysqli->real_escape_string($_POST["last_name"]);
 }else{
     die("Don't try to mess around bro ;)");
@@ -43,23 +43,20 @@ if($num_rows == 0){
     $sign_up_query->store_result();
     $sign_up_query->fetch();
     $array_response = [];
-    $user_info = [];
     $array_response["status"] = "success";
-    $user_info["first_name"] = $first_name;
-    $user_info["last_name"] = $last_name;
-    $user_info["email"] = $email;
-    $user_info["password"] = $password;
+    $array_response["first_name"] = $first_name;
+    $array_response["last_name"] = $last_name;
+    $array_response["email"] = $email;
+    $array_response["password"] = $password;
     
-    $json_response = json_encode($array_response);
-    $json_user_info = json_encode($user_info);
-    echo $json_response;
-    echo $json_user_info;
+    $json = json_encode($array_response);
+    echo $json;
     $sign_up_query->close();
     $mysqli->close();
 }else{
     $array_response["status"] = "user already exists";
-    $json_response = json_encode($array_response);
-    echo $json_response;
+    $json = json_encode($array_response);
+    echo $json;
     $mysqli->close();
 }
 

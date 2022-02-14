@@ -1,10 +1,20 @@
 const signinBtn = document.getElementById("signin-btn");
+const emailField = document.getElementById("login-email");
+const passwordField = document.getElementById("login-password");
 
 signinBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  const email = document.getElementById("login-email").value;
-  const password = document.getElementById("login-password").value;
-  fetchLogin(email, password);
+  const email = emailField.value;
+  const password = passwordField.value;
+  if (email.length ==0){
+      emailField.style.border = "solid #FF0000";
+  }
+
+  if (password.length ==0){
+      passwordField.style.border = "solid #FF0000";
+ }
+
+  fetchLogin(email, password)
 });
 
 async function fetchLogin(email, password) {
@@ -23,12 +33,11 @@ async function fetchLogin(email, password) {
     console.log(response);
     const json = await response.json();
     console.log(json);
-    if (json.status != "User not found!") {
+    if (json.status != "User not found!" && email.length > 0 && password.length >0) {
       localStorage.clear();
       localStorage.setItem("user_id", json.user_id);
       localStorage.setItem("first_name", json.first_name);
       localStorage.setItem("last_name", json.last_name);
-
       location.href = "../views/home.html";
     }
   } catch (error) {
@@ -45,7 +54,6 @@ const registerBtn = document.getElementById("signup-btn");
   const lastName = document.getElementById("register-last-name").value;
   const password = document.getElementById("register-password").value;
   fetchRegister(firstName, lastName, email, password);
-  
 });
 
 async function fetchRegister(firstName, lastName, email, password) {
@@ -66,6 +74,7 @@ async function fetchRegister(firstName, lastName, email, password) {
     console.log(response);
     const json = await response.json();
     console.log(json);
+    location.reload();
   } catch (error) {
     console.log("error", error);
   }
