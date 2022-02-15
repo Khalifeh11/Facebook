@@ -2,10 +2,11 @@
 header("Access-Control-Allow-Origin: *");
 include("db_info.php");
 
+$path = "C:\xampp\htdocs\Facebook\assets\images";
+$image = base64_encode($path);
 
 if(isset($_POST["email"])){
     $email = $mysqli->real_escape_string($_POST["email"]);
-    
 }else{
     die("enter email");
 }
@@ -16,6 +17,8 @@ if(isset($_POST["password"])){
 }else{
     die("enter password");
 }
+
+// filter_var($this->user_email, FILTER_VALIDATE_EMAIL))
 
 $query = $mysqli->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
 $query->bind_param("ss", $email, $password);
@@ -35,6 +38,7 @@ if(!$row){
     $array_response["user_id"] = $id_encode;
     $array_response["first_name"] = $row["first_name"];
     $array_response["last_name"] = $row["last_name"];
+    $array_response["email"] = $row["email"];
 }
 
 $json_response = json_encode($array_response);
