@@ -2,8 +2,8 @@
 header("Access-Control-Allow-Origin: *");
 include("db_info.php");
 
-$path = "C:\xampp\htdocs\Facebook\assets\images";
-$image = base64_encode($path);
+// $path = "C:\xampp\htdocs\Facebook\assets\images";
+// $image = base64_encode($path);
 
 if(isset($_POST["email"])){
     $email = $mysqli->real_escape_string($_POST["email"]);

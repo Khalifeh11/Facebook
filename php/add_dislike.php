@@ -8,7 +8,7 @@ include("db_info.php");
 $id = $_GET["id"];
 $id = base64_decode($id);
 $post_id = $_GET["post_id"];
-$type = 1;
+$type = 0;
 
 $check_query = $mysqli->prepare("SELECT * FROM likes where user1_id=? AND post_id=? AND type=?");
 
@@ -24,26 +24,26 @@ if ($num_rows == 0){
     $query = $mysqli->prepare("INSERT INTO likes (user1_id, post_id, type) VALUES (?,?, ?)"); 
     $query->bind_param("sss", $id, $post_id, $type);
     $query->execute();
-    $query2 = $mysqli->prepare("UPDATE posts SET nb_of_likes = nb_of_likes + 1 where ID=?");
+    $query2 = $mysqli->prepare("UPDATE posts SET nb_of_dislikes = nb_of_dislikes + 1 where ID=?");
     $query2->bind_param("s", $post_id);
     $query2->execute();
-    $array_response["status"] = "post liked";
+    $array_response["status"] = "post disliked";
 }else{
     $query3 = $mysqli->prepare("DELETE from likes where user1_id=? AND post_id=?"); 
     $query3->bind_param("ss", $id, $post_id);
     $query3->execute();
-    $query4 = $mysqli->prepare("UPDATE posts SET nb_of_likes = nb_of_likes - 1 where ID=?");
+    $query4 = $mysqli->prepare("UPDATE posts SET nb_of_dislikes = nb_of_dislikes - 1 where ID=?");
     $query4->bind_param("s", $post_id);
     $query4->execute();
-    $array_response["status"] = "like removed";
+    $array_response["status"] = "dislike removed";
 }
 
-$query5 = $mysqli->prepare("SELECT nb_of_likes from posts where ID = ?");
+$query5 = $mysqli->prepare("SELECT nb_of_dislikes from posts where ID = ?");
 $query5->bind_param("s", $post_id);
 $query5->execute();
 $result = $query5->get_result();
 $likes_row = $result->fetch_assoc();
-$array_response["nb_of_likes"] = $likes_row["nb_of_likes"];
+$array_response["nb_of_dislikes"] = $likes_row["nb_of_dislikes"];
 
 $json_response = json_encode($array_response);
 echo $json_response;
