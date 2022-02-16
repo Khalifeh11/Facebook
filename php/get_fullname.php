@@ -4,7 +4,6 @@ include("db_info.php");
 
 $id = $_POST["id"];
 
-
 $query = $mysqli->prepare("SELECT first_name, last_name FROM users where ID =?");
 $query->bind_param("s", $id);
 $query->execute();

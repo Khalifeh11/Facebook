@@ -3,7 +3,7 @@
 include("db_info.php");
 
 $id = $_GET["id"];
-// $id = base64_decode($id);
+$id = base64_decode($id);
 $is_blocked = 1;
 $is_pending = 1;
 
