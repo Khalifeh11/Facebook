@@ -6,9 +6,10 @@ $id = $_GET["id"];
 $id = base64_decode($id);
 $is_blocked = 1;
 
-$query = $mysqli->prepare("SELECT user1_id, user2_id FROM connections where (user1_id=? or user2_id =?) AND is_blocked = ?");
 
-$query->bind_param("iii", $id, $id, $is_blocked);
+$query = $mysqli->prepare("SELECT user1_id as blocked from connections WHERE NOT user1_id=? AND ((user2_id=?) AND is_blocked = ?) UNION SELECT user2_id from connections WHERE NOT user2_id=? AND ((user1_id=?) AND is_blocked = ?)");
+
+$query->bind_param("iiiiii", $id, $id, $is_blocked,$id, $id, $is_blocked);
 $query->execute();
 
 $result = $query->get_result();

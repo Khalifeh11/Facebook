@@ -3,7 +3,6 @@ session_start();
 
 include("db_info.php");
 
-// $id1 = $_SESSION["id"];
 
 $id = $_GET["id"];
 $id = base64_decode($id);
