@@ -1,15 +1,12 @@
 <?php
-session_start();
 
 include("db_info.php");
 
-// $id = $_SESSION["id"];
-$id = 1;
-$post_id = $_GET["post_id"];
+$post_id = $_POST["post_id"];
 
 
-$query = $mysqli->prepare("DELETE FROM posts WHERE ID=? AND User_ID=?");
-$query->bind_param("ss", $post_id, $id);
+$query = $mysqli->prepare("DELETE FROM posts WHERE ID=?");
+$query->bind_param("s", $post_id);
 $query->execute();
 
 $array_response = [];
