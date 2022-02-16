@@ -17,7 +17,7 @@ or (
     )
 or (
     User_ID IN (SELECT user2_id from connections WHERE (user2_id=? or user1_id=?) and is_blocked <> 1 and is_pending <> 1)
-    )");
+    ) ORDER BY post_time desc");
 
 // 2 3 4 22
 $query->bind_param("sssss", $id,$id,$id,$id,$id);
