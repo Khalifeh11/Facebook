@@ -8,7 +8,7 @@ $id = base64_decode($id);
 $is_blocked = 0;
 $is_pending = 0;
 
-$query = $mysqli->prepare("SELECT user1_id, user2_id FROM connections where user1_id=? or user2_id =? AND is_blocked = ? AND is_pending = ?");
+$query = $mysqli->prepare("SELECT user1_id, user2_id FROM connections where (user1_id=? or user2_id =?) AND is_blocked = ? AND is_pending = ?");
 
 $query->bind_param("iiii", $id, $id, $is_blocked, $is_pending);
 $query->execute();
