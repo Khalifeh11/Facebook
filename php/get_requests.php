@@ -7,7 +7,7 @@ $id = base64_decode($id);
 $is_blocked = 0;
 $is_pending = 1;
 
-$query=$mysqli->prepare("SELECT user1_id as request from connections WHERE NOT user1_id=? AND ((user2_id=?) AND is_blocked = ? AND is_pending = ?) UNION SELECT user2_id from connections WHERE NOT user2_id=? AND ((user1_id=?) AND is_blocked = ? AND is_pending = ?)");
+$query=$mysqli->prepare("SELECT user1_id as request from connections WHERE NOT user1_id=? AND ((user2_id=?) AND is_blocked = ? AND is_pending = ?)");
 
 
 
