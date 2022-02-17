@@ -3,13 +3,13 @@ session_start();
 
 include("db_info.php");
 
-// $id1 = $_SESSION["id"];
-$id1 = 1;
+$id1 = $_GET["id1"];
+$id1 = base64_decode($id1);
 $id2 = $_GET["id2"];
 $is_pending = 1;
 
-$check_query = $mysqli->prepare("SELECT * FROM connections where user1_id=? AND user2_id=?");
-$check_query->bind_param("ss", $id1,$id2);
+$check_query = $mysqli->prepare("SELECT * FROM connections where (user1_id=? AND user2_id=?) OR (user1_id=? AND user2_id=?)");
+$check_query->bind_param("ssss", $id1,$id2, $id2, $id1);
 $check_query->execute();
 $check_query->store_result();
 $num_rows = $check_query->num_rows;
